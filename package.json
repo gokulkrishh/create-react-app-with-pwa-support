@@ -1,0 +1,27 @@
+{
+  "name": "app-name",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "copy": "^0.3.0",
+    "react-scripts": "0.4.1",
+    "sw-precache": "^4.0.0"
+  },
+  "dependencies": {
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "npm run support-pwa && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "deploy": "bash deploy.sh",
+    "support-pwa": "node task.copy.js && npm run sw-precache",
+    "sw-precache": "sw-precache --root='build/' --static-file-globs='build/**/!(*map*)' --verbose"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/react-scripts/config/eslint.js"
+  },
+  "homepage": "./"
+}
