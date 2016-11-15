@@ -56,11 +56,11 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "npm run support-pwa && node scripts/build.js",
+    "build": "node scripts/build.js && npm run support-pwa",
     "test": "node scripts/test.js --env=jsdom",
     "deploy": "bash deploy.sh",
     "support-pwa": "node task.copy.js && npm run sw-precache",
-    "sw-precache": "sw-precache --root='build/' --static-file-globs='build/static/**/!(*map*)' --verbose"
+    "sw-precache": "sw-precache --root='build/' --static-file-globs='build/**/**/!(*map*)!(*txt*)' --verbose"
   },
   "jest": {
     "moduleFileExtensions": [
