@@ -2,9 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
-    <meta name="description" content="Create react app as progressive web application.">
-    <title>Create React App as PWA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Create react app with progressive web application support.">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <!--
+      Notice the use of %PUBLIC_URL% in the tag above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App with PWA support</title>
 
     <!-- Android -->
     <meta name="theme-color" content=""/>
@@ -20,11 +30,13 @@
     <meta name="msapplication-TileColor" content="">
     <meta name="msapplication-TileImage" content="">
 
-
+    <!-- iOS -->
     <link rel="apple-touch-icon" sizes="180x180" href="">
     <link rel="apple-touch-startup-image" href="">
     <link rel="mask-icon" href="" color="">
+
     <link rel="shortcut icon" href="./src/favicon.ico">
+    <link rel="manifest" href="./manifest.json">
   </head>
   <body>
     <div id="root"></div>
@@ -35,12 +47,11 @@
       You can add webfonts, meta tags, or analytics to this file.
       The build step will place the bundled scripts into the <body> tag.
 
-      To begin the development, run `npm start` in this folder.
+      To begin the development, run `npm start`.
       To create a production bundle, use `npm run build`.
     -->
-    <script src="./service-worker.js"></script>
     <script type="text/javascript">
-      if ("serviceWorker" in navigator && window.location.hostname !== "localhost") {
+      if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("./service-worker.js", { scope: "./" }).then(function(reg) {
           if (reg.installing) {
             console.info("Service worker installing.");
@@ -57,5 +68,6 @@
         });
       }
     </script>
+    <script src="./service-worker.js"></script>
   </body>
 </html>

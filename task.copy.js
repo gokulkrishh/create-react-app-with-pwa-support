@@ -5,12 +5,12 @@ var opts = {
   flatten: true
 };
 
-copy.each(['manifest.json', 'CNAME', 'robots.txt'], 'build', opts, function(err, files) {
+copy.each(['./public/manifest.json', './public/CNAME', './public/robots.txt'], 'build', opts, function(err, files) {
   if (err) throw err;
   console.log('static assets are copied!');
 });
 
-copy('./static/images/**.*', 'build/static/images', opts, function(err, files) {
+copy('./public/images/**.*', 'build/public/images', opts, function(err, files) {
   if (err) throw err;
-  console.log('Images are copied!');
+  console.log('All images are copied!');
 });
